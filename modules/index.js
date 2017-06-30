@@ -1,8 +1,10 @@
 const api = require('./api')
 const mqtt = require('./mqtt')
 const socketio = require('./socketio')
+const store = require('./store')
 
 const modules = {
+  store,
   api,
   mqtt,
   socketio

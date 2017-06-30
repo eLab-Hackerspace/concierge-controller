@@ -22,6 +22,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "express": "^4.15.3",
+    "lokijs": "^1.5.0",
     "mosca": "^2.5.1"
   }
 }

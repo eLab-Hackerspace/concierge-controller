@@ -2,7 +2,8 @@ const listeners = {
 
   // When a new Client Connects to the Broker
   'clientConnected': [
-    require('./listeners/logClientConnect')
+    require('./listeners/logClientConnect'),
+    require('./listeners/addClientToStore'),
   ],
 
   // When a connected client is on the proccess of disconnecting
@@ -13,7 +14,8 @@ const listeners = {
 
   // When a connected client gets Disconnected from the broker
   'clientDisconnected': [
-    require('./listeners/logClientDisconnected')
+    require('./listeners/logClientDisconnected'),
+    require('./listeners/removeClientFromStore'),
   ],
 
   // When a message is published

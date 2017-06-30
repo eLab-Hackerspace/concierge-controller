@@ -6,9 +6,7 @@ module.exports = {
 
   boot(callback) {
 
-    app.get('/', (req, res) => {
-      res.send({message: 'test'})
-    })
+    app.use('/', require('./controllers'))
 
     app.listen(3000, () => {
       logger.success('Controller API listening on port 3000!')

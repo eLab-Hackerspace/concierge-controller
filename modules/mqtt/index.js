@@ -3,7 +3,7 @@ const mosca = require('mosca')
 const events = require('./events')
 const auth = require('./auth')
 
-const facade = require('./facade')
+const MqttFacade = require('./facade')
 
 var server = null
 
@@ -36,7 +36,7 @@ module.exports = {
   },
 
   getFacade() {
-    return facade
+    return new MqttFacade(server)
   }
 
 }
