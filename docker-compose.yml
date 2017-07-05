@@ -1,0 +1,7 @@
+version: '2'
+services:
+  controller:
+    build: .
+    ports:
+      - "1883:1883"
+      - "3000:3000"
