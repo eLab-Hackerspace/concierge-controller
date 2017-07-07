@@ -20,7 +20,7 @@ const listeners = {
 
   // When a message is published
   'published': [
-
+    require('./listeners/logPublished')
   ],
 
   // When a message is delivered

@@ -13,8 +13,4 @@ module.exports = class MqttFacade {
 
     return this.server.publish(message, callback)
   }
-
-  buildTopicFromDevice (device, operation) {
-    return 'elab/' + device + '/' + operation
-  }
 }
