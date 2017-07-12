@@ -2,17 +2,13 @@ const logger = require('../logger')
 
 // Accepts the connection if the username and password are valid
 const authenticate = function(client, username, password, callback) {
-  var authenticated = false
 
-  if (username && password) {
-    authenticated = username == password.toString()
-  }
+  let certificate = client.connection.stream.getPeerCertificate();
+  client.id = certificate.subject.CN ;
 
-  if (authenticated) {
-    client.user = username
-  }
+  console.log(certificate)
 
-  callback(null, authenticated);
+  callback(null, true);
 }
 
 // In this case the client authorized as alice can publish to /users/alice taking

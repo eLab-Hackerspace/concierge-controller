@@ -5,6 +5,10 @@ const auth = require('./auth')
 
 const MqttFacade = require('./facade')
 
+const SECURE_KEY = 'certificates/broker.key.pem';
+const SECURE_CERT = 'certificates/broker.cert.pem';
+const SECURE_CA = 'certificates/ca-chain.cert.pem';
+
 var server = null
 
 module.exports = {
@@ -14,7 +18,16 @@ module.exports = {
       backend: {
         type: 'memory',
       },
-      port: 1883,
+      secure: {
+        port: 8883,
+      },
+      credentials: {
+        keyPath: SECURE_KEY,
+        certPath: SECURE_CERT,
+        caPaths: [ SECURE_CA ],
+        requestCert: true,
+        rejectUnauthorized: true,
+      }
     }
   },
 
@@ -26,7 +39,7 @@ module.exports = {
 
     server = this.create()
 
-    server.on('ready', () => {
+    server.on('ready', function () {
 
       events.register(server)
       auth.register(server)
