@@ -3,5 +3,7 @@ services:
   controller:
     build: .
     ports:
-      - "1883:1883"
+      - "8883:8883"
       - "3000:3000"
+    volumes:
+      - "./certificates:/usr/src/app/certificates"
